@@ -1,9 +1,13 @@
+# Kareem Mohamed Morsy Ismail, ID: 20190386, Group: CS-S3, Program: CS
+# David Emad Philip Ata-Allah, ID: 20190191, Group: CS-S3, Program: CS
+
 import random
 
 
 ITERATIONS = 1000
 POPULATION_SIZE = 100
 MUTATION_RATE = 0.1
+CROSSOVER_RATE = 0.7
 
 
 def inputNonEmpty():
@@ -72,6 +76,10 @@ def selection(population, fitness):
 
 
 def crossover(parent1, parent2):
+    # If the crossover rate is not met, return the parents
+    if random.random() > CROSSOVER_RATE:
+        return parent1, parent2
+
     # Find the crossover point
     crossover_point = random.randint(1, len(parent1) - 1)
 
