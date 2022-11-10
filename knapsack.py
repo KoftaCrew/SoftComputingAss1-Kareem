@@ -12,7 +12,7 @@ CROSSOVER_RATE = 0.7
 
 def inputNonEmpty():
     while True:
-        s = input()
+        s = input().strip()
         if s != "":
             return s
 
@@ -143,6 +143,13 @@ def doWork(t):
                 i + 1, items[i][0], items[i][1]))
 
 
-t = int(inputNonEmpty())
-for i in range(t):
-    doWork(i)
+# Take input from file
+with open("knapsack_input.txt", "r") as f:
+    input = f.readline
+
+    # Read the number of test cases
+    test_cases_num = int(inputNonEmpty())
+
+    # Do the work for each test case
+    for t in range(test_cases_num):
+        doWork(t)
